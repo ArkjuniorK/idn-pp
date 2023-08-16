@@ -26,7 +26,7 @@ const options = {
     task: 'regression',
     inputs: ['kode', 'tahun', 'kelamin'],
     outputs: ['jumlah'],
-    debug: true, // TODO: disable this on deployment
+    debug: false,
 }
 
 // create neural network instance based on given
