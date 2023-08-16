@@ -5,7 +5,7 @@
  * be viewed and downloaded here https://www.kaggle.com/datasets/winastwangora/proyeksi-jumlah-penduduk-indonesia-jenis-kelamin.
  *
  * TODO:
- * - Add interface to frontend []
+ * - Add interface to frontend [v]
  * - Deploy to Github Pages []
  *
  */
@@ -13,6 +13,7 @@
 import provinces from "./provinces.js";
 
 const formComponent = document.querySelector("#form");
+const errorComponent = document.querySelector("#error-wrapper");
 const readyComponent = document.querySelector("#ready")
 const valueComponent = document.querySelector("#result-value")
 const loadingComponent = document.querySelector("#loading")
@@ -34,8 +35,7 @@ const nn = ml5.neuralNetwork(options, dataLoaded)
 
 /**
  * This is a callback that would be trigger
- * inside the neuralNetwork function that responsible
- * with two things:
+ * inside the neuralNetwork function that responsible with two things:
  * 1. Normalize input data
  * 2. Train the model
  */
@@ -58,7 +58,7 @@ function trainModel() {
  * In here all operation would primarily use to modify the DOM.
  */
 function doneTraining() {
-    // insert data into select
+    // insert data into select components
     yearSelectorComponent.append(...getYears());
     provinceSelectorComponent.append(...getProvinces());
 
@@ -160,6 +160,12 @@ function onSubmit(e) {
 function handleResults(error, results) {
    if (error) {
        console.error(error);
+       const errorMessage = `Error: ${error}`
+
+       valueComponent.classList.toggle("d-none");
+       errorComponent.classList.toggle("d-none");
+       errorComponent.innerHTML = errorMessage;
+
        return
    }
 
