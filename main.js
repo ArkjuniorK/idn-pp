@@ -6,7 +6,7 @@
  *
  * TODO:
  * - Add interface to frontend [v]
- * - Deploy to Github Pages []
+ * - Deploy to Github Pages [v]
  *
  */
 
