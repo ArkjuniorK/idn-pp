@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Indonesian Population Prediction - Machine Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="main.js"></script>
+</head>
+<body>
+
+<main id="main" class="container-sm w-25 mt-5 border p-5">
+    <h4>🤖 ML - Neural Network</h4>
+    <div>Population prediction for each province in Indonesia based on gender
+        using <a class="link-offset-2" target="_blank" href="https://learn.ml5js.org/">ml5.js</a> neural network helper
+        and datasets from <a class="link-offset-2" target="_blank"
+                             href=https://www.kaggle.com/datasets/winastwangora/proyeksi-jumlah-penduduk-indonesia-jenis-kelamin"">Kaggle</a>
+    </div>
+
+    <div id="loading" class="mt-5 text-center">
+        ⌛ Loading model, please wait...
+    </div>
+
+    <div id="ready" class="d-none">
+        <div class="mt-4">
+            <form id="form" class="form">
+                <select id="select-province" name="province" class="form-select mt-2" aria-label="Province">
+                    <option selected>Province</option>
+                </select>
+                <select id="select-year" name="year" aria-label="Year" class="form-select mt-2" >
+                    <option selected>Year</option>
+                </select>
+                <select id="select-gender" name="gender" class="form-select mt-2" aria-label="Gender">
+                    <option selected>Gender</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+                <button type="submit" class="btn btn-secondary mt-4">Predict</button>
+                <button type="reset" class="btn btn-danger mt-4">Reset</button>
+            </form>
+        </div>
+
+        <div id="prediction-result-wrapper" class="mt-4">
+            <div>Result
+                &emsp;
+                &emsp;
+                &ensp;
+                :
+                <strong id="result-value">0</strong>
+                population
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
